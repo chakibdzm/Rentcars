@@ -63,7 +63,7 @@ class _OnboardingState extends State<Onboarding> {
                   borderRadius: BorderRadius.circular(getHeight(50)),
                 ),
                 child: Center(
-                  child: Text('Let s Go',
+                  child: Text('Let\'s Go',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w700,
