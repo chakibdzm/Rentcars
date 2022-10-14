@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rentcar/size_config.dart';
 
 class Myhome extends StatefulWidget {
@@ -10,7 +12,16 @@ class Myhome extends StatefulWidget {
 }
 
 class _MyhomeState extends State<Myhome> {
+  final CameraPosition _initialPosition=CameraPosition(target:LatLng(24.903623,67.198367));
+  var currentPos;
+  var currentLat=37.43296265331129;
+  var currentLong=-122.08832357078792;
+  var markers=[];
   @override
+  void initState(){
+    super.initState();
+    getcurrentlocation();
+  }
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return SafeArea(
@@ -189,12 +200,19 @@ class _MyhomeState extends State<Myhome> {
                   SizedBox(
                     width: getWidth(17),
                   ),
+
                   Container(
                     height: getHeight(190),
                     width: getWidth(151),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(getHeight(20)),
                       color: Color(0xF787878),
+                    ),
+                    child: GoogleMap(initialCameraPosition: _initialPosition,
+                    mapType: MapType.normal
+                      ,
+                      myLocationButtonEnabled: true,
+                      myLocationEnabled: true,
                     ),
                   ),
                 ],
@@ -374,5 +392,15 @@ class _MyhomeState extends State<Myhome> {
         ),
       ),
     );
+  }
+  getcurrentlocation()async{
+    await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high).then((Position pos) async{
+      setState(() {
+        currentPos=pos;
+        currentLat=pos.latitude;
+        currentLong=pos.longitude;
+
+      });
+    });
   }
 }
