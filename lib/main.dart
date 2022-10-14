@@ -20,7 +20,7 @@ class Myapp extends StatelessWidget {
         highlightColor: Colors.transparent,
         primarySwatch: Colors.blue,
       ),
-      home:Signinscreen(),
+      home:Onboarding(),
 
 
     );

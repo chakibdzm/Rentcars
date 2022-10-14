@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rentcar/Screens/Home/Myhome.dart';
+import 'package:rentcar/Screens/UserScreens/SignIn.dart';
 
 import '../size_config.dart';
 class Onboarding extends StatefulWidget {
@@ -54,7 +55,7 @@ class _OnboardingState extends State<Onboarding> {
               onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => Myhome())),
+                      builder: (context) => Signinscreen())),
               child: Container(
                 height: getHeight(54),
                 width: getWidth(319),
