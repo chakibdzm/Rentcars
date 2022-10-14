@@ -16,8 +16,7 @@ class _MapsPageState extends State<MapsPage> {
 
     return SafeArea(child: Scaffold(
       body: GoogleMap(initialCameraPosition: _initialPosition,
-        mapType: MapType.normal
-        ,
+        mapType: MapType.normal,
         myLocationButtonEnabled: true,
         myLocationEnabled: true,
       ),
