@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:rentcar/Screens/Map/Map.dart';
 import 'package:rentcar/size_config.dart';
 
 class Myhome extends StatefulWidget {
@@ -379,7 +380,12 @@ class _MyhomeState extends State<Myhome> {
                   ),
                   Positioned(
                     child: InkWell(
-                        onTap: () => print('pressed'),
+                        onTap: () => {Navigator.push(
+    context,
+    MaterialPageRoute(
+    builder: (context) => MapsPage())),
+    print('pressed 1'),
+    },
                         child:
                             SvgPicture.asset('assets/illustrations/Group.svg')),
                     right: getWidth(29),
